@@ -8,6 +8,7 @@ plumber   = require 'gulp-plumber'
 htmlace   = require 'gulp-html-replace'
 htmlify   = require 'gulp-minify-html'
 jasmine   = require 'gulp-jasmine'
+connect   = require 'gulp-connect'
 
 buildDir  = 'dist/'
 srcDir    = 'app/'
@@ -66,6 +67,7 @@ gulp.task 'default', ['js', 'html']
 gulp.task 'html-dev', ->
   gulp.src htmls
     .pipe gulp.dest buildDir
+    .pipe connect.reload()
 
 vendors       = [ modules + "jquery/dist/jquery.js" ]
 coffeeScripts = [ srcDir + coffees
@@ -77,6 +79,7 @@ gulp.task 'js-dev', ['clean-js'], ->
     gulp.src(vendors),
     processCoffee coffeeScripts
   .pipe gulp.dest buildDir
+  .pipe connect.reload()
 
 specScripts = [ buildDir + specs ]
 
@@ -86,7 +89,12 @@ gulp.task 'jasmine', ['js-dev'], ->
       coffee: false
       autotest: true
 
-gulp.task 'watch', ->
+gulp.task 'connect', ->
+  connect.server
+    root: buildDir
+    livereload: true
+
+gulp.task 'watch', ['connect'], ->
   gulp.watch coffeeScripts, ['js-dev', 'jasmine']
   gulp.watch htmls, ['html-dev']
 

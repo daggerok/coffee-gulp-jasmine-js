@@ -1,0 +1,6 @@
+sudo: false
+language: node_js
+node_js: "5.1"
+script:
+  - npm run gulp clean
+  - npm test

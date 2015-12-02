@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "d:\\Development\\test\\js\\coffee-gulp-jasmine-js"
+		}
+	],
+    "build_systems":
+    [
+        {
+            "name": "npm test",
+            "shell_cmd": "npm test"
+        }
+    ]
+}

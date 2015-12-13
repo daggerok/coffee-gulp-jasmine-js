@@ -7,5 +7,5 @@ describe 'Calculator', ->
     calculator = new Calculator
 
   it 'should add correctly', ->
-    expect calculator.add 1, 2
+    expect(calculator.add 1, 2)
       .toEqual 3

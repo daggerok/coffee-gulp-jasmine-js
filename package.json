@@ -1,19 +1,21 @@
 {
   "name": "coffee-gulp-jasmine-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "coffee gulp jasmine js example",
   "scripts": {
+    "pregulp": "npm install",
     "gulp": "gulp --require coffee-script/register",
-    "clean": "gulp clean",
-    "test": "gulp jasmine",
-    "build": "gulp clean && gulp jasmine && gulp clean && gulp default",
-    "dev": "gulp clean && gulp dev",
-    "watch": "npm run dev && gulp watch"
+    "clean": "npm run gulp clean",
+    "test": "npm run gulp test",
+    "build": "npm run gulp",
+    "dev": "npm run gulp dev",
+    "start": "npm run gulp watch"
   },
   "author": "Maksim Kostromin",
   "license": "ISC",
   "devDependencies": {
     "coffee-script": "^1.10.0",
+    "colors": "^1.1.2",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-concat": "^2.6.0",
